@@ -13,7 +13,7 @@ int* initializeBenchmarkArray()
   return benchmarkArray;
 }
 
-int* generateSortedArrayFromBenchmarkArray(int benchmarkArray[SIZE])
+void performBenchmarkAlgorithm(int benchmarkArray[SIZE])
 {
   int* sortedArray = new int[SIZE];
   for(int x = 0; x < SIZE; x++)
@@ -28,11 +28,6 @@ int* generateSortedArrayFromBenchmarkArray(int benchmarkArray[SIZE])
       }
     }
   }
-  for(int x = 0; x < SIZE; x++)
-  {
-    sortedArray[x] = benchmarkArray[x];
-  }
-  return sortedArray;
 }
 
 int main()
@@ -43,12 +38,11 @@ int main()
 
   std::cout << "Starting Benchmark...\n";
   std::time_t startTime = std::time(nullptr);
-  int* sortedArray = generateSortedArrayFromBenchmarkArray( benchmarkArray );
+  performBenchmarkAlgorithm( benchmarkArray );
   std::time_t endTime = std::time(nullptr);
   std::cout << "Benchmark complete.\n";
 
   delete[] benchmarkArray;
-  delete[] sortedArray;
 
   double duration = std::difftime(endTime, startTime);
   std::cout << "Time to taken to sort insertion sort of size '" << SIZE << "': " << duration << " seconds.\n";

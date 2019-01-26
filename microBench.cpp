@@ -1,7 +1,7 @@
 #include <iostream>
 #include <ctime>
 
-const int SIZE = 100000;
+const int SIZE = 1000000;
 
 int* initializeBenchmarkArray()
 {
